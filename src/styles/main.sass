@@ -1,13 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap')
 
 $beige: #F0EBE3
-$dark-beige: #E4DCCF
-$green: #7D9D9C
-$dark-green: #576F72
+$darkbeige: #d6d4d1
+$violet: #3b2b4b
+$lightviolet: #5e3d66
+$pink: #94578a
+$lightpink: #de7bb7
+$white: #ffabeb
 
 body
     background: beige
-    font-family: 'Roboto Slab', serif
     font-size: 50px
 
+*
+    margin: 0
+    padding: 0
+    font-family: 'Roboto Slab', serif
+    font-size: 30px
+
+@import reset
+@import mixins
 @import widthChanger
+@import layouts
