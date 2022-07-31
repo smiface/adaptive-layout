@@ -7,11 +7,11 @@ type LayoutProps = {
   width?: string;
 };
 
-export const LayoutLG = (props: LayoutProps) => {
+export const LayoutMd = (props: LayoutProps) => {
   return (
     <div class={"layout layout-" + props.size} style={{ width: props.width }}>
-      <Header size="lg" />
-      LayoutLG
+      <Header size="md" />
+      mdzxczx
     </div>
   );
 };
