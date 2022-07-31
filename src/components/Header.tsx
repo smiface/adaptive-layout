@@ -31,12 +31,14 @@ export const Header = (props: HeaderProps) => {
       </Show>
 
       <Show when={layout() == "lg"}>
-        <button onclick={() => toggleMenu()}>{showMenu() ? `Close menu` : `Open menu`}</button>
-        <Show when={showMenu() === true}>
-          <div>
-            <Links />
-          </div>
-        </Show>
+        <div class="menu_wrapper">
+          <button onclick={() => toggleMenu()}>{showMenu() ? `Close menu` : `Open menu`}</button>
+          <Show when={showMenu() === true}>
+            <div class="menu">
+              <Links />
+            </div>
+          </Show>
+        </div>
       </Show>
 
       <Show when={layout() == "md"}>
@@ -48,10 +50,9 @@ export const Header = (props: HeaderProps) => {
         </Show>
       </Show>
 
-      <Show when={layout() == "xs" || layout() == "sm" }>
+      <Show when={layout() == "xs" || layout() == "sm"}>
         <button onclick={() => toggleMenu()}> {showMenu() ? `❌` : `☰`} </button>
       </Show>
-
     </header>
   );
 };

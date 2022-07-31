@@ -11,9 +11,9 @@ export const LayoutXs = (props: LayoutProps) => {
   return (
     <div class={"layout layout-" + props.size} style={{ width: props.width }}>
       <Header size="xs" />
-      <aside class={showMenu() ? "hidden" : ""}>
+      <div class={showMenu() ? "menu" : "menu hidden"}>
         <Links />
-      </aside>
+      </div>
       LayoutXs
     </div>
   );

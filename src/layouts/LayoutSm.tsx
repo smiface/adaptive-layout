@@ -16,9 +16,9 @@ export const LayoutSm = (props: LayoutProps) => {
     <div class={"layout layout-" + props.size} style={{ width: props.width }}>
       <Header size="sm" />
       LayoutSm
-      <aside class={showMenu() ? "hidden" : ""}>
+      <div class={showMenu() ? "menu" : "menu hidden"}>
         <Links />
-      </aside>
+      </div>
     </div>
   );
 };

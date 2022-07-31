@@ -1,5 +1,5 @@
-import { Component, JSX, ParentProps } from "solid-js";
-import { Header } from "../components/Header";
+import { Component, JSX, ParentProps, Show } from "solid-js";
+import { Header, Links, showMenu } from "../components/Header";
 
 type LayoutProps = {
   children?: JSX.Element;

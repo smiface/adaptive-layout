@@ -11,7 +11,7 @@ export const LayoutMd = (props: LayoutProps) => {
   return (
     <div class={"layout layout-" + props.size} style={{ width: props.width }}>
       <Header size="md" />
-      mdzxczx
+      Layout md
     </div>
   );
 };
