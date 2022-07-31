@@ -14,7 +14,7 @@ export const LayoutXs = (props: LayoutProps) => {
       <div class={showMenu() ? "menu" : "menu hidden"}>
         <Links />
       </div>
-      LayoutXs
+      <h2>Layout Xs</h2>
     </div>
   );
 };

@@ -1,9 +1,12 @@
 import { createSignal, Show } from "solid-js";
-import { layout, width, windowWidth } from "../store/main";
+import { layout } from "../store/main";
 
 type HeaderProps = {
   size?: string | "";
 };
+
+const [showMenu, setShowMenu] = createSignal(false);
+const toggleMenu = () => setShowMenu(!showMenu());
 
 const Links = () => {
   return (
@@ -16,8 +19,39 @@ const Links = () => {
   );
 };
 
-const [showMenu, setShowMenu] = createSignal(false);
-const toggleMenu = () => setShowMenu(!showMenu());
+const ContentLg = () => (
+  <div class="menu_wrapper">
+    <button onclick={() => toggleMenu()}>{showMenu() ? `Close menu` : `Open menu`}</button>
+    <Show when={showMenu() === true}>
+      <div class="menu">
+        <Links />
+      </div>
+    </Show>
+  </div>
+);
+
+const ContentMd = () => (
+  <>
+    <button onclick={() => toggleMenu()}> {showMenu() ? `less` : `more`} </button>
+    <Show when={showMenu() === true}>
+      <div>
+        <Links />
+      </div>
+    </Show>
+  </>
+);
+
+const ContentSm = () => <button onclick={() => toggleMenu()}> {showMenu() ? `❌` : `☰`} </button>;
+const ContentXs = () => <button onclick={() => toggleMenu()}> {showMenu() ? `❌` : `☰`} </button>;
+
+const content = {
+  xxl: () => <Links />,
+  xl: () => <Links />,
+  lg: () => <ContentLg />,
+  md: () => <ContentMd />,
+  sm: () => <ContentSm />,
+  xs: () => <ContentXs />,
+};
 
 export const Header = (props: HeaderProps) => {
   return (
@@ -26,33 +60,7 @@ export const Header = (props: HeaderProps) => {
         <img src="/src/assets/logo.ico" alt="logo" />
       </a>
 
-      <Show when={layout() == "xl" || layout() == "xxl"}>
-        <Links />
-      </Show>
-
-      <Show when={layout() == "lg"}>
-        <div class="menu_wrapper">
-          <button onclick={() => toggleMenu()}>{showMenu() ? `Close menu` : `Open menu`}</button>
-          <Show when={showMenu() === true}>
-            <div class="menu">
-              <Links />
-            </div>
-          </Show>
-        </div>
-      </Show>
-
-      <Show when={layout() == "md"}>
-        <button onclick={() => toggleMenu()}> {showMenu() ? `less` : `more`} </button>
-        <Show when={showMenu() === true}>
-          <div>
-            <Links />
-          </div>
-        </Show>
-      </Show>
-
-      <Show when={layout() == "xs" || layout() == "sm"}>
-        <button onclick={() => toggleMenu()}> {showMenu() ? `❌` : `☰`} </button>
-      </Show>
+      {content[layout()]}
     </header>
   );
 };

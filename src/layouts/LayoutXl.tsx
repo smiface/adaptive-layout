@@ -11,7 +11,7 @@ export const LayoutXl = (props: LayoutProps) => {
   return (
     <div class={"layout layout-" + props.size} style={{ width: props.width }}>
       <Header size="xl" />
-      LayoutXl
+      <h2>Layout Xl</h2>
     </div>
   );
 };

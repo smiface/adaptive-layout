@@ -15,7 +15,7 @@ export const LayoutSm = (props: LayoutProps) => {
   return (
     <div class={"layout layout-" + props.size} style={{ width: props.width }}>
       <Header size="sm" />
-      LayoutSm
+      <h2>Layout Sm</h2>
       <div class={showMenu() ? "menu" : "menu hidden"}>
         <Links />
       </div>
