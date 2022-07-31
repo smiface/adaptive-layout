@@ -87,13 +87,13 @@ header
 
         div
             @include menu
-            height: 825px
 
             a
                 padding: 70px 0
 
     &.sm, &.xs
         justify-content: space-around
+        position: relative
 
         a, button
             padding: 0
@@ -106,3 +106,34 @@ header
             border: 5px solid $beige
             &:hover
                 border: 5px solid $lightviolet
+
+aside
+    // background: red
+    position: absolute
+    display: flex
+    flex-direction: column
+
+    height: calc(100% - 70px)
+    top: 70px
+    width: 100%
+    right: 0
+    transition: .3s
+    padding: 50px 0
+    background: $pink
+
+    a
+        height: 100px
+        color: $beige
+        text-decoration: unset
+        display: flex
+        align-items: center
+        justify-content: center
+
+        &:hover
+            background: $lightviolet
+            color: $beige
+            transition: .3s
+            cursor: pointer
+
+    &.hidden
+        right: -100%

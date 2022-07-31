@@ -8,8 +8,9 @@ export const WidthChanger = () => {
 
   return (
     <div class="widthChanger">
-      <Show when={windowWidth() > 1280}>
+      
         <input
+        style={{display: windowWidth() > 1280 ? "" : "none"}}
           type="range"
           min="1"
           max="100"
@@ -20,7 +21,6 @@ export const WidthChanger = () => {
             inputMove(+target.value);
           }}
         />
-      </Show>
 
       <div class="buttons">
         <For each={layouts}>

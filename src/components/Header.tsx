@@ -16,10 +16,10 @@ const Links = () => {
   );
 };
 
-export const Header = (props: HeaderProps) => {
-  const [showMenu, setShowMenu] = createSignal(false);
-  const toggleLgMenu = () => setShowMenu(!showMenu());
+const [showMenu, setShowMenu] = createSignal(false);
+const toggleMenu = () => setShowMenu(!showMenu());
 
+export const Header = (props: HeaderProps) => {
   return (
     <header class={props.size}>
       <a href="/">
@@ -31,7 +31,7 @@ export const Header = (props: HeaderProps) => {
       </Show>
 
       <Show when={layout() == "lg"}>
-        <button onclick={() => toggleLgMenu()}>{showMenu() ? `Close menu` : `Open menu`}</button>
+        <button onclick={() => toggleMenu()}>{showMenu() ? `Close menu` : `Open menu`}</button>
         <Show when={showMenu() === true}>
           <div>
             <Links />
@@ -40,7 +40,7 @@ export const Header = (props: HeaderProps) => {
       </Show>
 
       <Show when={layout() == "md"}>
-        <button onclick={() => toggleLgMenu()}> {showMenu() ? `less` : `more`} </button>
+        <button onclick={() => toggleMenu()}> {showMenu() ? `less` : `more`} </button>
         <Show when={showMenu() === true}>
           <div>
             <Links />
@@ -48,23 +48,12 @@ export const Header = (props: HeaderProps) => {
         </Show>
       </Show>
 
-      <Show when={layout() == "xs"}>
-        <button onclick={() => toggleLgMenu()}> {showMenu() ? `❌` : `☰`} </button>
-        <Show when={showMenu() === true}>
-          <div>
-            <Links />
-          </div>
-        </Show>
+      <Show when={layout() == "xs" || layout() == "sm" }>
+        <button onclick={() => toggleMenu()}> {showMenu() ? `❌` : `☰`} </button>
       </Show>
 
-      <Show when={ layout() == "sm"}>
-        <button onclick={() => toggleLgMenu()}> {showMenu() ? `❌` : `☰`} </button>
-        <Show when={showMenu() === true}>
-          <div>
-            <Links />
-          </div>
-        </Show>
-      </Show>
     </header>
   );
 };
+
+export { showMenu, toggleMenu, Links };
